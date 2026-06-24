@@ -49,6 +49,35 @@ docker-compose up --build
 
 Press `q` or `Esc` to quit. Press `r` to restart after game over.
 
+## Gestures
+
+The game is controlled with one hand. Keep your full palm and wrist visible to the camera.
+
+| Gesture | Action |
+|---|---|
+| Index + pinky up, middle + ring folded | Shoot web |
+| Peace sign (index + middle up) | Shield |
+| Fist | Punch |
+| Move the same hand left/right on screen | Move Spider-Man left/right |
+
+Movement follows your palm position:
+
+- Hand left side of camera: Spider-Man moves left.
+- Hand right side of camera: Spider-Man moves right.
+- Hand near center: Spider-Man stops.
+
+Detection is smoothed for short drops, so control should not stop immediately if MediaPipe misses a few frames.
+
+## Hand Tracking Tips
+
+- Keep your palm open and wrist visible when moving.
+- Avoid putting your hand too close to the camera.
+- Use good lighting; very bright windows or dark hands against a dark background can reduce tracking quality.
+- If the HUD shows `Gesture: none`, move your hand slowly into the middle of the frame until landmarks appear.
+- For web gesture, raise index and pinky, fold middle and ring.
+- For shield gesture, make a peace sign (index and middle fingers up).
+- For punch, close all four fingers into a fist.
+
 ## Required Character Assets
 
 Place your custom chibi Spider-Man PNG here before running:
@@ -68,34 +97,6 @@ assets/characters/thug/thug.png
 ```
 
 Venom and Goblin are scaled close to Spider-Man size while preserving each PNG's aspect ratio.
-
-## Gestures
-
-The game is controlled with one hand. Keep your full palm and wrist visible to the camera.
-
-| Gesture | Action |
-|---|---|
-| Index + pinky up, middle + ring folded | Shoot web |
-| Fist | Punch |
-| Open palm | Shield |
-| Move the same hand left/right on screen | Move Spider-Man left/right |
-
-Movement follows your palm position:
-
-- Hand left side of camera: Spider-Man moves left.
-- Hand right side of camera: Spider-Man moves right.
-- Hand near center: Spider-Man stops.
-
-Detection is smoothed for short drops, so control should not stop immediately if MediaPipe misses a few frames.
-
-## Hand Tracking Tips
-
-- Keep your palm open and wrist visible when moving.
-- Avoid putting your hand too close to the camera.
-- Use good lighting; very bright windows or dark hands against a dark background can reduce tracking quality.
-- If the HUD shows `Gesture: none`, move your hand slowly into the middle of the frame until landmarks appear.
-- For web gesture, raise index and pinky, fold middle and ring.
-- For punch, close all four fingers into a fist.
 
 ## Structure
 
