@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  spiderverse-ar:
+    build: .
+    container_name: spiderverse-ar
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ./assets:/app/assets
+    devices:
+      - /dev/video0:/dev/video0
+    cap_add:
+      - SYS_PTRACE

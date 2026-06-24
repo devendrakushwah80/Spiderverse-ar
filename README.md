@@ -2,15 +2,50 @@
 
 SpiderVerse AR is a webcam-first Computer Vision mini-game built with OpenCV and MediaPipe. The user's room stays as the main background while a small Spider-Man city runs in the bottom 25% of the camera frame.
 
-## Run
+## Quick Start
+
+### Local Setup (Windows/Mac/Linux)
 
 ```bash
-cd C:\MachineLearning\Spidey\spiderverse_ar
+cd spiderverse_ar
 python -m venv .venv
+# On Windows:
 .venv\Scripts\activate
+# On Mac/Linux:
+source .venv/bin/activate
 pip install -r requirements.txt
 python src/main.py
 ```
+
+### Docker Setup
+
+Build and run the application in Docker:
+
+```bash
+# Build the Docker image
+docker build -t spiderverse-ar .
+
+# Run the container with webcam access (Linux/Mac)
+docker run --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+  --device /dev/video0:/dev/video0 \
+  -v ./assets:/app/assets \
+  spiderverse-ar
+```
+
+**For Windows with Docker Desktop:**
+
+```bash
+docker build -t spiderverse-ar .
+docker run --rm spiderverse-ar
+```
+
+**Using Docker Compose (Linux/Mac):**
+
+```bash
+docker-compose up --build
+```
+
+**Controls:**
 
 Press `q` or `Esc` to quit. Press `r` to restart after game over.
 
